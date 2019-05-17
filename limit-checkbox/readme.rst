@@ -1,0 +1,1 @@
+You can read tutorial https://www.roytuts.com/limit-number-of-checkbox-selections-using-javascript/

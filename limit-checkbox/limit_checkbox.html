@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript">
+		function checkBoxLimit() {
+			var checkBoxGroup = document.forms['form_name']['check[]'];			
+			var limit = 2;
+			for (var i = 0; i < checkBoxGroup.length; i++) {
+				checkBoxGroup[i].onclick = function() {
+					var checkedcount = 0;
+					for (var i = 0; i < checkBoxGroup.length; i++) {
+						checkedcount += (checkBoxGroup[i].checked) ? 1 : 0;
+					}
+					if (checkedcount > limit) {
+						console.log("You can select maximum of " + limit + " checkboxes.");
+						alert("You can select maximum of " + limit + " checkboxes.");						
+						this.checked = false;
+					}
+				}
+			}
+		}
+		
+		function onlyOneCheckBox() {
+			var checkboxgroup = document.getElementById('checkboxgroup').getElementsByTagName("input");
+			var limit = 1;
+			for (var i = 0; i < checkboxgroup.length; i++) {
+				checkboxgroup[i].onclick = function() {
+					var checkedcount = 0;
+						for (var i = 0; i < checkboxgroup.length; i++) {
+						checkedcount += (checkboxgroup[i].checked) ? 1 : 0;
+					}
+					if (checkedcount > limit) {
+						console.log("You can select maximum of " + limit + " checkbox.");
+						alert("You can select maximum of " + limit + " checkbox.");
+						this.checked = false;
+					}
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<!-- using form -->
+	<h1>Using Form</h1>
+	<form method="post" name="form_name" id="form_name">
+        <input type="checkbox" name="check[]" value="CheckBox 1"/>
+        <input type="checkbox" name="check[]" value="CheckBox 2"/>
+        <input type="checkbox" name="check[]" value="CheckBox 3"/>
+    </form>
+    <script type="text/javascript">checkBoxLimit()</script>
+	
+	<!-- using div -->
+	<h1>Using Div</h1>
+	<div id="checkboxgroup">
+		<input type="checkbox" value="CheckBox 1" name="check[]">
+		<input type="checkbox" value="CheckBox 2" name="check[]">
+		<input type="checkbox" value="CheckBox 3" name="check[]">
+	</div>
+	<script type="text/javascript">
+		onlyOneCheckBox()
+	</script>
+</body>
+</html>
