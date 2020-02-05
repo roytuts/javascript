@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+	<title>Print using JavaScript</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+</head>
+<body>	
+	<div id="print-area">
+		<table border="1" style="width: 100%; margin : auto;">
+			<tr>
+				<th colspan="4" style="text-align: center; font-size:22px;">Vehicle Parking receipt</th>
+			</tr>
+			<tr>
+				<th>Parking Number</th>
+				<td>4536</td>
+				<th>Vehicle Category</th>
+				<td>Two Wheeler</td>
+			</tr>
+			<tr>
+				<th>Vehicle Company Name</th>
+				<td>Bajaj</td>			 
+				<th>Registration Number</th>
+				<td>MH 14 QH 2435</td>
+			</tr>
+		    <tr>
+				<th>Owner Name</th>
+				<td>Someone</td>		  
+				<th>Owner Contact Number</th>
+				<td>435678923</td>
+			</tr>
+			<tr>
+				<th>In Time</th>
+				<td>10-10-2019 10:00:00</td>
+				<th>Status</th>
+				<td>Outgoing Vehicle</td>
+			</tr>
+			<tr>
+				<th>Out time</th>
+				<td>10-10-2019 12:00:00</td>
+				<th>Rarking Charge</th>
+				<td>20</td>
+			</tr>
+			<tr>
+				<th>Remark</th>
+				<td colspan="3">Vehicle Out</td>
+			</tr>
+		</table>
+	</div>
+	<div style="width: 20px; margin:auto; cursor: pointer;">
+		<i class="fa fa-print fa-2x" aria-hidden="true" OnClick="printReceipt('print-area')"></i>
+	</div>
+	<script>
+		function printReceipt(id) {
+			var prtContent = document.getElementById(id);
+			var WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
+			WinPrint.document.write(prtContent.innerHTML);
+			WinPrint.document.close();
+			WinPrint.focus();
+			WinPrint.print();
+			WinPrint.close();
+		}
+	</script>
+</body>
+</html>
