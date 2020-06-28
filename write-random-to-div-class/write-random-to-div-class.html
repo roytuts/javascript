@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">	
+	<title>Select random elements from array and write to divs having class name</title>
+</head>
+<body>
+	<h1>Select random elements from array and write to divs having class name</h1>
+	<div>
+		<div class="content"></div>
+		<div class="content"></div>
+		<div class="content"></div>
+	</div>
+	
+	<script type="text/javascript">
+		c1 = 'Hi';
+		c2 = 'Hello';
+		c3 = 'Hey';
+		
+		const msg = [c1, c2, c3];
+		
+		var x = document.getElementsByClassName("content");
+		const len = x.length;
+		
+		for(var i=0; i<len; i++) {
+			x[i].innerHTML = msg[Math.floor(Math.random() * len)];
+		}
+	</script>
+</body>
+</html>
