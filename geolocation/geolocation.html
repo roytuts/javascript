@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GEO location with HTML5, jQuery</title>
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+	<script type="text/javascript">
+		if (navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition(function (p) {
+				var LatLng = new google.maps.LatLng(p.coords.latitude, p.coords.longitude);
+				
+				var mapOptions = {
+					center: LatLng,
+					zoom: 13,
+					mapTypeId: google.maps.MapTypeId.ROADMAP
+				};
+				
+				var geocoder = new google.maps.Geocoder();
+				var infoWindow = new google.maps.InfoWindow();
+				
+				var map = new google.maps.Map(document.getElementById("dvMap"), mapOptions);
+				
+				var marker = new google.maps.Marker({
+					position: LatLng,
+					map: map
+				});
+				
+				google.maps.event.addListener(marker, "click", function (e) {
+					geocoder.geocode({'location': LatLng}, function(results, status) {
+						if (status === google.maps.GeocoderStatus.OK) {
+							if (results[0]) {
+								infoWindow.setContent("<div style = 'height:100px;width:200px'><b>Address:</b> " + results[0].formatted_address + "<br /><b>Latitude:</b> " + p.coords.latitude + "<br /><b>Longitude:</b> " + p.coords.longitude);
+								infoWindow.open(map, marker);
+							} else {
+								window.alert('No results found');
+							}
+						} else {
+							window.alert('Geocoder failed due to: ' + status);
+						}
+					});
+				});
+			});
+		} else {
+			alert('Geo Location feature is not supported in this browser.');
+		}
+	</script>
+</head>
+<body>
+	<div id="dvMap" style="width: 500px; height: 500px"></div>				
+</body>
