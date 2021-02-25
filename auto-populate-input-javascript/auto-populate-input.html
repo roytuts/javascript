@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+	<head>
+		<script type="text/javascript">
+			//delegate amount
+			var delAmount = 0;
+			//spouse amount
+			var agreeAmount = 0;
+			
+			//compare date so that depending on the date value we can set some amount to the particular field
+			var x ='15-12-2014';
+			var a = x.split('-');
+			var date = new Date (a[2], a[1] - 1,a[0]);//using a[1]-1 since Date object has month from 0-11
+			var Today = new Date();
+			if (date > Today) {
+				delAmount = 1200;
+				agreeAmount = 500;
+			} else {
+				delAmount = 1500;
+				agreeAmount = 700;
+			}
+			
+			//total amount
+			var totalAmount = delAmount;
+			//below function is called when the page loads
+			function populateAmount() {
+				//populate delegate field with delegate amount
+				document.getElementById('delAmount').value = delAmount;
+				//populate total field with total amount
+				document.getElementById('totalAmount').value = totalAmount;
+			}
+			//below function is called when checkbox is checked
+			function calcTotalAmount() {
+				//populate delegate amount
+				document.getElementById('delAmount').value = delAmount;
+				//recalculate and populate total amount field
+				if(document.getElementById('chkBox').checked && document.getElementById('chkBox').value == 1) {
+					totalAmount = delAmount + agreeAmount;
+				} else {
+					totalAmount = totalAmount - agreeAmount;
+				}
+				document.getElementById('totalAmount').value = totalAmount;
+			}
+		</script>
+	</head>
+	<body onload="populateAmount();">
+		<div style="width:650px;margin:auto;">
+			<!-- Delegate Amount -->
+			<p>
+				<label>Amount</label><br/>
+				<input type="text" id="delAmount" disabled="disabled">
+			</p>
+			<!-- Checkbox -->
+			<p>
+				<label>Check</label><br/>
+				<input type="checkbox" id="chkBox" value="1" onchange="calcTotalAmount();">
+			</p>
+			<!-- Total Amount -->
+			<p>
+				<label>Total Amount</label><br/>
+				<input type="text" id="totalAmount" disabled="disabled">
+			</p>
+		</div>
+		</div>
+	</body>
+</html>
