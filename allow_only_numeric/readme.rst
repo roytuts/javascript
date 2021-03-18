@@ -1,1 +1,1 @@
-You can read tutorial https://www.roytuts.com/allow-only-numeric-values-or-digits-in-a-textbox-using-javascript-or-jquery/
+You can read tutorial https://roytuts.com/allow-only-numeric-values-or-digits-in-a-textbox-using-javascript-or-jquery/
