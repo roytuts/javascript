@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>HTML Conditional Cell Color Using CSS JavaScript</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<table id="sales-info" border="1" cellpadding="4" cellspacing="1" style="margin: auto;">
+		<thead>
+			<tr>
+				<th>Product Id</th>
+				<th>Price</th>
+				<th>Sale Price</th>
+				<th>Sales Count</th>
+				<th>Sale Date</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>30000</td>
+				<td>35000</td>
+				<td>55</td>
+				<td>02-04-2018</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>30300</td>
+				<td>37030</td>
+				<td>43</td>
+				<td>03-04-2018</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>39010</td>
+				<td>48700</td>
+				<td>145</td>
+				<td>04-04-2018</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>15000</td>
+				<td>17505</td>
+				<td>251</td>
+				<td>05-04-2018</td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>18000</td>
+				<td>22080</td>
+				<td>178</td>
+				<td>05-04-2018</td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td>30500</td>
+				<td>34040</td>
+				<td>58</td>
+				<td>05-04-2018</td>
+			</tr>
+			<tr>
+				<td>7</td>
+				<td>2000</td>
+				<td>2500</td>
+				<td>68</td>
+				<td>06-04-2018</td>
+			</tr>
+			<tr>
+				<td>8</td>
+				<td>45871</td>
+				<td>55894</td>
+				<td>165</td>
+				<td>07-04-2018</td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<script>
+		var t = document.getElementById('sales-info');
+		if(t) {
+			Array.from(t.rows).forEach((tr, rowIdx) => {
+				Array.from(tr.cells).forEach((cell, cellIdx) => {
+					if (cell.innerText == '') {
+						cell.style.backgroundColor = 'RGBA(85,83,108,0.4)';
+					}else if (cell.innerText >=0 && cell.innerText <=15) {
+						cell.style.backgroundColor = 'RGBA(255,198,191,0.4)';
+					}else if (cell.innerText > 15 && cell.innerText <=20) {
+						cell.style.backgroundColor = 'RGBA(170,214,136,0.4)';
+					}else if (cell.innerText > 20 && cell.innerText <=25) {
+						cell.style.backgroundColor = 'RGBA(152,195,119,0.6)';
+					}else if (cell.innerText > 25 && cell.innerText <=30) {
+						cell.style.backgroundColor = 'RGBA(139,189,120,0.9)';
+					}else if (cell.innerText > 30 && cell.innerText <=60) {
+						cell.style.backgroundColor = 'RGBA(94,167,88,0.9)';
+					}else if (cell.innerText > 60 && cell.innerText <=150) {
+						cell.style.backgroundColor = 'RGBA(88,157,65,0.3)';
+					}else if (cell.innerText > 150 && cell.innerText <=10000) {
+						cell.style.backgroundColor = 'RGBA(95,160,97,0.6)';
+					}else if (cell.innerText > 10000 && cell.innerText <=20000) {
+						cell.style.backgroundColor = 'RGBA(105,170,90,0.7)';
+					}else if (cell.innerText > 20000 && cell.innerText <=30000) {
+						cell.style.backgroundColor = 'RGBA(115,164,76,0.6)';
+					}else if (cell.innerText > 30000) {
+						cell.style.backgroundColor = 'RGBA(98,143,94,0.4)';
+					}
+				});
+			});
+		}
+		
+		/*var table = document.getElementById("sales-info");
+		for (var i = 0, row; row = table.rows[i]; i++) {
+			for (var j = 0, cell; cell = row.cells[j]; j++) {
+				if (cell.innerText == '') {
+					cell.style.backgroundColor = 'RGBA(85,83,108,0.4)';
+				}else if (cell.innerText >=0 && cell.innerText <=15) {
+					cell.style.backgroundColor = 'RGBA(255,198,191,0.4)';
+				}else if (cell.innerText > 15 && cell.innerText <=20) {
+					cell.style.backgroundColor = 'RGBA(170,214,136,0.4)';
+				}else if (cell.innerText > 20 && cell.innerText <=25) {
+					cell.style.backgroundColor = 'RGBA(152,195,119,0.6)';
+				}else if (cell.innerText > 25 && cell.innerText <=30) {
+					cell.style.backgroundColor = 'RGBA(139,189,120,0.9)';
+				}else if (cell.innerText > 30 && cell.innerText <=60) {
+					cell.style.backgroundColor = 'RGBA(94,167,88,0.9)';
+				}else if (cell.innerText > 60 && cell.innerText <=150) {
+					cell.style.backgroundColor = 'RGBA(88,157,65,0.3)';
+				}else if (cell.innerText > 150 && cell.innerText <=10000) {
+					cell.style.backgroundColor = 'RGBA(95,160,97,0.6)';
+				}else if (cell.innerText > 10000 && cell.innerText <=20000) {
+					cell.style.backgroundColor = 'RGBA(105,170,90,0.7)';
+				}else if (cell.innerText > 20000 && cell.innerText <=30000) {
+					cell.style.backgroundColor = 'RGBA(115,164,76,0.6)';
+				}else if (cell.innerText > 30000) {
+					cell.style.backgroundColor = 'RGBA(98,143,94,0.4)';
+				}
+			}  
+		}*/
+  </script>
+</body>
+</html>
