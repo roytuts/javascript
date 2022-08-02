@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+	<head>
+		<script type="text/javascript">
+			function convertToUppercase() {
+				document.getElementById('output').innerHTML = document.getElementById('input').value.toUpperCase()
+			}
+		</script>
+	</head>
+	<body>
+		<div>Enter lowercase letters to convert to uppercase letters</div>
+		<p>
+			<input type="text" id="input" onkeyup="convertToUppercase()"/>
+		</p>
+		<p id="output"/>
+	</body>
+</html>
