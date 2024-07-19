@@ -1,1 +1,1 @@
-You can read tutorial at https://www.roytuts.com/print-div-data-of-a-web-page-using-javascript/
+Please follow the tutorial https://roytuts.com/print-div-data-of-a-web-page-using-javascript/
